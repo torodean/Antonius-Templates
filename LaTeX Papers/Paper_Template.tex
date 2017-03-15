@@ -1,0 +1,122 @@
+\documentclass[11pt]{article}
+
+%%% These are some packages that are useful
+\usepackage{amsmath,amssymb, amscd,amsbsy, amsthm, enumerate}
+\usepackage[export]{adjustbox}
+\usepackage{lastpage}
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+\usepackage[unicode]{hyperref}
+\usepackage{tikz, pgfplots, xcolor, fancyhdr}
+\usepackage{multicol}
+\usepackage{lipsum}
+
+%%% Page formatting
+%\setlength{\headsep}{30pt}
+\setlength{\textheight}{9in}
+\newcommand{\tab}{\hspace{1cm}}
+%\setlength{\parindent}{25pt}
+
+\title{A Brief Review of a LaTeX Template}
+\author{Antonius Torode}
+
+%%% Header and Footer Info
+\pagestyle{fancy}
+\fancyhead[L]{{\large Template - \textbf{Change 03}}}
+\fancyhead[C]{\today}
+\fancyhead[R]{Name: Antonius Torode}
+
+
+\fancyhf{} % sets both header and footer to nothing
+\renewcommand{\headrulewidth}{0pt}
+% your new footer definitions here
+
+\fancyfoot[L]{MSU}
+\fancyfoot[C]{}
+\fancyfoot[R]{\thepage\ of \pageref{LastPage}}
+
+% Used to define spacing and format of References
+\let\OLDthebibliography\thebibliography
+\renewcommand\thebibliography[1]{
+	\OLDthebibliography{#1}
+	\setlength{\parskip}{0pt}
+	\setlength{\itemsep}{0pt plus 0.3ex}
+}
+
+%%% Document Starts now
+\begin{document}
+
+\maketitle
+\thispagestyle{fancy}
+
+\begin{abstract}
+	\lipsum[1]
+\end{abstract}
+
+\begin{multicols}{2}
+	\begin{center}
+		I. Introduction
+	\end{center}
+\lipsum[2]
+\begin{align}
+\nabla^2 \vec{E} &= \mu_0\epsilon_0 \frac{\partial^2 \vec{E}}{\partial t^2} \\
+\nabla^2 \vec{B} &= \mu_0\epsilon_0 \frac{\partial^2 \vec{B}}{\partial t^2}.
+\end{align}
+From these, the speed of both of these waves is similar and turns out to be the speed of EM radiation \cite{label1} which is given by
+\begin{align}
+c=\frac{1}{\sqrt{\mu_0\epsilon_0}} = 299,792,458 \frac{m}{s}.
+\end{align}
+\lipsum[3]
+\begin{center}
+	II. Middle Section
+\end{center}
+
+\lipsum[4]
+
+\begin{center}
+	\centering
+	\includegraphics[width=0.48\textwidth]{./image1.png}
+	{\footnotesize\textbf{Figure 2:} This is a figure \cite{AH}} 
+\end{center}
+
+
+
+\begin{center}
+	III. Conclusion
+\end{center}
+
+\lipsum[5]
+
+
+
+\begin{thebibliography}{9}
+	{\footnotesize
+	\bibitem{label1} Citations go Here.	
+		
+	\bibitem{AH} Antonius' Handbook 
+	}
+\end{thebibliography}
+\end{multicols}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
