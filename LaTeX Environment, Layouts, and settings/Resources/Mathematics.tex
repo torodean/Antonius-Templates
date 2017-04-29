@@ -1,0 +1,18 @@
+%
+\newcommand{\curl}[1]{
+	\textrm{curl }\vec{#1}
+}%
+
+%
+\newcommand{\curlCartesian}[3]{
+	\begin{vmatrix}
+		\hat{x} & \hat{y} &\hat{z} \\
+		\frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
+		#1 & #2 & #3 \\
+	\end{vmatrix}
+	}%
+	
+%
+\newcommand{\curlCartesianExpanded}[3]{
+	\left(\frac{\partial #3}{\partial y}-\frac{\partial #2}{\partial z}\right)\hat{x}-\left(\frac{\partial #3}{\partial x}-\frac{\partial #1}{\partial z}\right)\hat{y}+\left(\frac{\partial #2}{\partial x}-\frac{\partial #1}{\partial y}\right)\hat{z}
+}%

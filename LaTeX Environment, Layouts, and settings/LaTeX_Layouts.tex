@@ -1,0 +1,124 @@
+\documentclass[11pt]{article}
+
+%This package is useful in changing page margins. Here I have each margin set to 1 in.
+\usepackage[left=1in,right=1in,top=1in,bottom=1in]{geometry}
+
+%These are some useful packages for formatting mathematical equations.
+\usepackage{amsfonts, amsmath,amssymb, amscd,amsbsy, amsthm, enumerate}
+\usepackage{mdframed, titlesec, setspace,verbatim, multicol}
+
+\usepackage{etoolbox}
+\usepackage{tikz}
+
+%This package provides enhanced linking to references and citations.
+\usepackage[unicode]{hyperref}
+
+%This package allows us to use fancy headers at the top and bottom of each page
+\usepackage{fancyhdr}
+
+%Allows us to use listings for writing code chunks in fancy blocks.
+\usepackage{listings}
+
+%allows us to do cool things with colors
+\usepackage{xcolor}
+
+%%% Header and Footer Info defined from fancy header
+\pagestyle{fancy}
+\fancyhead[L]{{\large \LaTeX - \textbf{Useful Features}}}
+\fancyhead[C]{}
+\fancyhead[R]{Name: Antonius Torode}
+\fancyfoot[L]{}
+\fancyfoot[C]{\thepage}
+\fancyfoot[R]{}
+
+%%% Page formatting
+%\setlength{\headsep}{30pt}
+\setlength{\parindent}{20pt} %This sets the indent size at the beginning of paragraphs.
+\setlength{\textheight}{9in}
+
+%opening
+\title{Various (\LaTeX) Layouts, Environments, and Useful Settings}
+\author{Antonius Torode}
+\date{Last Edited: \today}
+
+%defines some new colors
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{commentcolour}{rgb}{.00,.245,.0}
+
+%defines the lstlisting style for a language
+\lstdefinestyle{}{language=, tabsize=3, backgroundcolor=\color{backcolour},breaklines=true, basicstyle=\footnotesize, showstringspaces=false, commentstyle=\color{commentcolour}, keywordstyle=\color{blue}}
+\lstset{style=}
+
+
+%Mathematical Styles and Definitions
+\include{./Resources/Mathematics}
+\include{./Resources/Layouts}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\newpage
+
+\section{Document Purpose}
+This documents purpose is to outline various \LaTeX styles and useful settings/environments to be used either in conjunction with each other or individually within any \LaTeX document. Throughout this document I try to explain the code in each element as well as use the code itself within the document so that it is to be reproducible and editable easily. Using hte package "listings", the \LaTeX code can be displayed in a fancy box whenever referenced. Below is the code that determines the style of the code blocks that will be displayed in this document. What it dies is change the default style to what we desite and then set the lst style to the default value.
+\begin{lstlisting}
+%Allows us to use listings for writing code chunks in fancy blocks.
+\usepackage{listings}
+
+%defines some new colors
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{commentcolour}{rgb}{.00,.245,.0}
+
+%defines the lstlisting style for a language
+\lstdefinestyle{}{language=, tabsize=3, backgroundcolor=\color{backcolour},breaklines=true, basicstyle=\footnotesize, showstringspaces=false, commentstyle=\color{commentcolour}, keywordstyle=\color{blue}}
+\lstset{style=}
+\end{lstlisting}
+The above code is implemented simply by using the begin{lstlisting} and end{lstlisting} commands. It is important to note it is not easy to code \LaTeX code chunks within \LaTeX itself so I will further assume the reader has basic knowledge of how to implement definitions within the document once they are set up and only occasionally give explicit examples.
+
+\section{Mathematical Commands}
+
+\subsection{Matrices}
+Matrices are useful in mathematics and often tedious to write in \LaTeX. We can define some new commands to make these slightly simpler. First, suppose we want to show the 3-dimensional curl of two vectors in cartesian coordinates. Then we would be required to write something such as
+\begin{align}
+\curl{A} = \curlCartesian{A_x}{A_y}{A_z} = \curlCartesianExpanded{A_x}{A_y}{A_z}
+\end{align}
+Consider the following definition that enables us to write this in a very simple manner.
+\begin{lstlisting}
+%
+\newcommand{\curl}[1]{
+\textrm{curl }\vec{#1}
+}%
+
+%
+\newcommand{\curlCartesian}[3]{
+\begin{vmatrix}
+\hat{x} & \hat{y} &\hat{z} \\
+\frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
+#1 & #2 & #3 \\
+\end{vmatrix}
+}%
+
+%
+\newcommand{\curlCartesianExpanded}[3]{
+\left(\frac{\partial #3}{\partial y}-\frac{\partial #2}{\partial z}\right)\hat{x}-\left(\frac{\partial #3}{\partial x}-\frac{\partial #1}{\partial z}\right)\hat{y}+\left(\frac{\partial #2}{\partial x}-\frac{\partial #1}{\partial y}\right)\hat{z}
+}%
+\end{lstlisting}
+To call this command and write our desired code, it simply takes
+\begin{lstlisting}
+\curl{A} = \curlCartesian{A_x}{A_y}{A_z} = \curlCartesianExpanded{A_x}{A_y}{A_z}
+\end{lstlisting}
+
+
+
+\section{Proofs, Lemma's, Theorem's, Definitions and Their Layouts}
+
+\subsection{Definitions}
+
+\begin{fancybox}[Definition]{2}
+	Text in a box
+\end{fancybox}
+
+
+\end{document}
