@@ -1,0 +1,18 @@
+\renewcommand{\chaptername}{}
+
+\titleformat{\chapter}[display]
+{\normalfont\bfseries}{}{0pt}{\huge}
+
+\geometry{margin=1in}
+
+\setlength{\parindent}{25pt}
+
+\renewcommand\bibname{References}
+
+\renewcommand{\headrulewidth}{0pt}
+%\setcounter{chapter}{-1} %starts the chapter labels at 0 instead of 1
+
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{commentcolour}{rgb}{.00,.245,.0}
+\lstdefinestyle{sharpc}{language=[Sharp]C, tabsize=3, backgroundcolor=\color{backcolour},breaklines=true, basicstyle=\footnotesize, showstringspaces=false, commentstyle=\color{commentcolour}, keywordstyle=\color{blue}}
+\lstset{style=sharpc}

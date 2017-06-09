@@ -1,0 +1,42 @@
+ \documentclass[openany,a4paper,11pt]{book}
+
+\include{./TeX_files/packages}
+\include{./TeX_files/settings}
+
+\title{\vspace{0.1cm}  \includegraphics[scale=0.5]{./Images/MIA_cropped_Inverted.png} \vspace{.5cm} \\ Multiple Integrated Applications (MIA) \\  Manual \& Programming Documentation}
+\author{Developer: Antonius Torode \\ Michigan State University \\ Department of Physics \& Astronomy}
+\date{Version -- 0.001 \\ Latest update: \today}
+
+\begin{document}
+
+\frontmatter
+\maketitle
+\include{./TeX_files/frontmatter}
+\tableofcontents
+\newpage
+\vspace*{\fill}
+\begin{center}
+	\textit{This page intentionally left blank.}
+\end{center}
+\vspace*{\fill}
+
+\mainmatter
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[RO, LE]{\thepage}
+
+
+\fancypagestyle{plain}{%
+	%\fancyhf{} % clear all header and footer fields
+	\fancyhead[RO, LE]{\thepage}
+	\renewcommand{\headrulewidth}{0pt}
+	\renewcommand{\footrulewidth}{0pt}}
+
+\include{./TeX_files/concept}
+\include{./TeX_files/commands}
+
+\backmatter
+\include{./TeX_files/AppendixI}
+\include{./TeX_files/references}
+
+\end{document}
