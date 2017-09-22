@@ -11,6 +11,10 @@
 %% Copyright (C) 2007-2011 Brian Amberg
 %% Copyright (C) 2011      Reinhold Kainhofer <reinhold@kainhofer.com>
 %%
+%% 24. October 2011: 
+%%     - The grid was broken when not explicitly specifying the column number, this has been fixed now.
+%%     - The perennial text border faded was still broken, it just faded to the other text border color, not to transparent. Now also fixed
+%%     - Implemented the noheaderbox, when no text is given, the box will have no header and the content will be moved up accordingly.
 %% 29. September 2011: 
 %%     - Finally fixed confusion with paper size handling and landscape. This required seperate handling of papersizes 
 %%       known to the geometry package and other packages.
@@ -148,7 +152,7 @@
 \typeout{Use Packages}
 \RequirePackage{xkeyval}
 \RequirePackage{calc}
-\RequirePackage[cmyk]{xcolor}
+%\RequirePackage[cmyk]{xcolor}
 \RequirePackage{tikz}
 \RequirePackage{pgf}
 \RequirePackage{ifthen}
@@ -158,8 +162,6 @@
 \usetikzlibrary{fadings}
 \usetikzlibrary{snakes}
 \usetikzlibrary{calc}
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Settings
@@ -401,7 +403,7 @@
 % headershade can be one of: shade-lr, shade-tb, shade-tb-inverse, plain
 \define@choicekey*+[ba]{posterbox}{headershade}%
     [\baposter@box@headershade\baposter@box@headershadenr]%
-    {shadelr, shadetb, shadetbinverse, plain} [shadelr] {%
+    {shadelr,shadetb,shadetbinverse,plain} [shadelr] {%
   \debug{Header shade: \baposter@box@headershade}
   \renewcommand{\baposterHeaderSetShade}[3]{
       \csname baposter@box@headershade@\baposter@box@headershade\endcsname{##1}{##2}{##3}}
@@ -452,6 +454,7 @@
 \define@cmdkey[ba]{posterbox}[baposter@box@]{boxColorTwo}           [cyan]        {}
 \define@cmdkey[ba]{posterbox}[baposter@box@]{headerfont}            [\scshape\Large]   {}
 \define@cmdkey[ba]{posterbox}[baposter@box@]{textfont}              [{}]          {}
+\define@cmdkey[ba]{posterbox}[baposter@box@]{boxopacity}            [1.0]   {}
 
 \define@cmdkey[ba]{posterbox}[baposter@box@]{linewidth}             [2pt]         {}
 
@@ -478,7 +481,7 @@
   %
   colspacing=1em,
   headerheight=0.1\textheight,
-  background=shadeLR,
+  background=shadelr,
 }{}
 \setkeys[ba]{posterbox}{
   % Position
@@ -509,6 +512,7 @@
   headershade=shadeLR,
   headerborder=none,
   boxheaderheight=2em,
+  boxopacity=1.0
 }{}
 
 
@@ -592,7 +596,7 @@
 }
 \newcommand{\baposter@box@drawbackground@plain}[2]{
   \tikzstyle{box colors}=[fill=#1]
-  \fill[box colors] \baposterBoxGetShape;
+  \fill[box colors, opacity=\baposter@box@boxopacity] \baposterBoxGetShape;
 }
 \newcommand{\baposter@box@drawbackground@shadelr}[2]{
   \tikzstyle{box colors}=[shading=axis, left color=#1, right color=#2]%
@@ -636,8 +640,10 @@
   % This is the right way to do it, but it does not work with evince, and has problems during printing, so instead we do
   %\draw[color=#1,path fading=south] \baposterBoxGetShape;%
   % this
-  \foreach \x in {0,1,...,90} \draw[color=#1!\x] ($(\baposter@box@name tnw)!{(100-\x)/100}!(\baposter@box@name sw)$) -- ($(\baposter@box@name tnw)!{(100-(\x+10))/100}!(\baposter@box@name sw)$);%
-  \foreach \x in {0,1,...,90} \draw[color=#1!\x] ($(\baposter@box@name tne)!{(100-\x)/100}!(\baposter@box@name se)$) -- ($(\baposter@box@name tne)!{(100-(\x+10))/100}!(\baposter@box@name se)$);%
+ %\foreach \x in {0,1,...,90} { \draw[color=#1!\x] ($(\baposter@box@name tnw)!{(100-\x)/100}!(\baposter@box@name sw)$) -- ($(\baposter@box@name tnw)!{(100-(\x+10))/100}!(\baposter@box@name sw)$); }% 
+ %\foreach \x in {0,1,...,90} { \draw[color=#1!\x] ($(\baposter@box@name tne)!{(100-\x)/100}!(\baposter@box@name se)$) -- ($(\baposter@box@name tne)!{(100-(\x+10))/100}!(\baposter@box@name se)$); }%
+  \foreach \x in {0,1,...,99} { \draw[color=#1,opacity=\x/100] ($(\baposter@box@name tnw)!{(100-\x)/100}!(\baposter@box@name sw)$) -- ($(\baposter@box@name tnw)!{(100-(\x+1))/100}!(\baposter@box@name sw)$); }% 
+  \foreach \x in {0,1,...,99} { \draw[color=#1,opacity=\x/100] ($(\baposter@box@name tne)!{(100-\x)/100}!(\baposter@box@name se)$) -- ($(\baposter@box@name tne)!{(100-(\x+1))/100}!(\baposter@box@name se)$); }%
 }
 \newcommand{\baposter@box@drawborder@roundedsmall}[1]{
   \draw[color=#1] \baposterBoxGetShape;%
@@ -787,7 +793,12 @@
   \debug{Format}%
   % Set default for columns if unset (4 for landscape, 3 for portrait)
   \ifthenelse{\equal{\baposter@columns}{}}{%
-    \renewcommand{\baposter@columns}{\if@landscape4\else3\fi}%
+    \if@landscape
+      \renewcommand{\baposter@columns}{4}
+    \else
+      \renewcommand{\baposter@columns}{3}
+    \fi
+    %
   }{}
 %
   \debug{Columns: \baposter@columns}%
@@ -857,7 +868,11 @@
     \colorlet{boxColorTwo}{\baposter@box@boxColorTwo}
 %
     \setlength{\baposter@box@@cornerradius}{\baposter@box@cornerradius}%
+    \ifthenelse{\equal{\baposter@box@title}{}}{% No header
+    \setlength{\baposter@box@@boxheaderheight}{0pt}%
+    }{ % With header
     \setlength{\baposter@box@@boxheaderheight}{\baposter@box@boxheaderheight}%
+    }%
     \setlength{\baposter@box@@boxpadding}{\baposter@box@boxpadding}%
 
 
@@ -983,24 +998,26 @@
       %       We only need to determine (fill|shade)(draw|)...
 %       \baposterHeaderDrawBackground{bgColorOne}{bgColorTwo}{borderColor}
 %       \baposterHeaderDrawBorder{borderColor}
+    \ifthenelse{\equal{\baposter@box@title}{}}{% No header
+    }{% With header
       \ifcase\baposter@box@headerbordernr\relax%
         % open
         \ifthenelse{\equal{\baposter@box@headershade}{plain}}{
-          \filldraw  [style=header colors] \baposterHeaderGetShape;%
+          \filldraw  [style=header colors, opacity=\baposter@box@boxopacity] \baposterHeaderGetShape;%
         }{
           \shadedraw [style=header colors] \baposterHeaderGetShape;%
         }
       \or
         % closed
         \ifthenelse{\equal{\baposter@box@headershade}{plain}}{
-          \filldraw  [style=header colors] \baposterHeaderGetShape -- cycle;%
+          \filldraw  [style=header colors, opacity=\baposter@box@boxopacity] \baposterHeaderGetShape -- cycle;%
         }{
           \shadedraw [style=header colors] \baposterHeaderGetShape -- cycle;%
         }
       \or
         % none
         \ifthenelse{\equal{\baposter@box@headershade}{plain}}{
-          \fill      [style=header colors] \baposterHeaderGetShape;%
+          \fill      [style=header colors, opacity=\baposter@box@boxopacity] \baposterHeaderGetShape;%
         }{
           \shade     [style=header colors] \baposterHeaderGetShape;%
         }
@@ -1008,6 +1025,7 @@
       %
       %% Draw the text inside the box header:
       \baposterHeaderDrawText{\color{headerFontColor}\baposter@box@headerfont{\baposter@box@title}};%
+    }
       %
       %% Text borders (border around boxes)
       \debug{Poster boxes}%
@@ -1074,19 +1092,20 @@
     % The end, draw gridlines if neccesary
     \ifbaposter@grid
       \newdimen{\gridpos}
+      \typeout{\baposter@columns-1}
       \pgfmathsetmacro{\z}{\baposter@columns-1}
-      \foreach \y in {0,...,\z}
-      {
-        \setlength{\gridpos}{\y\colwidth+\y\baposter@@colspacing}
-        \draw[draw=green,draw opacity=0.7] (\gridpos,0pt)  -- (\gridpos,\colheight)
-            (\gridpos+\colwidth,0pt)  -- (\gridpos+\colwidth,\colheight);%
-      }
-      % Horizontal lines, every 0.1:
-      %% Explicitly list all percentages, because with {0.0, 0.1, ..., 1.0} we
-      %% get rounding errors in the displayed numbers!
-      \foreach \y in {0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0}
-        \draw[draw=green,draw opacity=0.7] (0pt,\colheight-\y\colheight)  --
-            (\textwidth,\colheight-\y\colheight) node[anchor=west] {\y};%
+     \foreach \y in {0,...,\z}
+     {
+       \setlength{\gridpos}{\y\colwidth+\y\baposter@@colspacing}
+       \draw[draw=green,draw opacity=0.7] (\gridpos,0pt)  -- (\gridpos,\colheight)
+           (\gridpos+\colwidth,0pt)  -- (\gridpos+\colwidth,\colheight);%
+     }
+     % Horizontal lines, every 0.1:
+     %% Explicitly list all percentages, because with {0.0, 0.1, ..., 1.0} we
+     %% get rounding errors in the displayed numbers!
+     \foreach \y in {0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0}
+       \draw[draw=green,draw opacity=0.7] (0pt,\colheight-\y\colheight)  --
+           (\textwidth,\colheight-\y\colheight) node[anchor=west] {\y};%
     \fi%
   \end{tikzpicture}%
  % \xkvview{}
