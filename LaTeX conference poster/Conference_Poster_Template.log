@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.10.8)  29 APR 2017 02:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.10.8)  22 SEP 2017 15:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -740,19 +740,19 @@ File: pgflibraryarrows.code.tex 2013/09/23 v3.0.1a (rcs-revision 1.16)
 )) (./Conference_Poster_Template.aux)
 \openout1 = `Conference_Poster_Template.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Try loading font information for T1+ppl on input line 51.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Try loading font information for T1+ppl on input line 53.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ppl.fd
 File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
@@ -851,42 +851,52 @@ e
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-<figures/BG3.jpg, id=29, 1284.8pt x 803.0pt>
-File: figures/BG3.jpg Graphic file (type jpg)
- <use figures/BG3.jpg>
-Package pdftex.def Info: figures/BG3.jpg used on input line 86.
-(pdftex.def)             Requested size: 947.26715pt x 670.04315pt.
+<figures/BG2a.jpg, id=29, 802.9197pt x 607.068pt>
+File: figures/BG2a.jpg Graphic file (type jpg)
+ <use figures/BG2a.jpg>
+Package pdftex.def Info: figures/BG2a.jpg used on input line 88.
+(pdftex.def)             Requested size: 947.29001pt x 670.0pt.
 
-<figures/MSU.jpg, id=30, 2023.56pt x 469.755pt>
-File: figures/MSU.jpg Graphic file (type jpg)
- <use figures/MSU.jpg>
-Package pdftex.def Info: figures/MSU.jpg used on input line 86.
-(pdftex.def)             Requested size: 172.29366pt x 40.0pt.
-File: figures/MSU.jpg Graphic file (type jpg)
+<figures/nscl.png, id=30, 301.125pt x 376.40625pt>
+File: figures/nscl.png Graphic file (type png)
+ <use figures/nscl.png>
+Package pdftex.def Info: figures/nscl.png used on input line 88.
+(pdftex.def)             Requested size: 31.99812pt x 40.0pt.
 
-<use figures/MSU.jpg>
-Package pdftex.def Info: figures/MSU.jpg used on input line 86.
-(pdftex.def)             Requested size: 172.29366pt x 40.0pt.
+<figures/nsftextlong.png, id=31, 715.67375pt x 166.6225pt>
+File: figures/nsftextlong.png Graphic file (type png)
+
+<use figures/nsftextlong.png>
+Package pdftex.def Info: figures/nsftextlong.png used on input line 88.
+(pdftex.def)             Requested size: 171.79796pt x 40.0pt.
+
+<figures/MSUwide.png, id=32, 2399.364pt x 469.755pt>
+File: figures/MSUwide.png Graphic file (type png)
+ <use figures/MSUwide.png>
+Package pdftex.def Info: figures/MSUwide.png used on input line 88.
+(pdftex.def)             Requested size: 204.29105pt x 40.0pt.
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <10> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 86.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 88.
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <24.88> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 86.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 88.
 LaTeX Font Info:    Font shape `T1/ppl/bx/sc' in size <24.88> not available
-(Font)              Font shape `T1/ppl/b/sc' tried instead on input line 86.
-LaTeX Font Info:    Try loading font information for U+msa on input line 86.
- (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+(Font)              Font shape `T1/ppl/b/sc' tried instead on input line 88.
+LaTeX Font Info:    Try loading font information for U+msa on input line 88.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 86.
- (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+LaTeX Font Info:    Try loading font information for U+msb on input line 88.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 94.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 96.
 LaTeX Font Info:    Font shape `T1/ppl/bx/sc' in size <14.4> not available
-(Font)              Font shape `T1/ppl/b/sc' tried instead on input line 94.
+(Font)              Font shape `T1/ppl/b/sc' tried instead on input line 96.
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
@@ -904,11 +914,11 @@ Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 
-<figures/barcrawl.jpg, id=33, 602.25pt x 994.71625pt>
+<figures/barcrawl.jpg, id=36, 602.25pt x 994.71625pt>
 File: figures/barcrawl.jpg Graphic file (type jpg)
 
 <use figures/barcrawl.jpg>
-Package pdftex.def Info: figures/barcrawl.jpg used on input line 165.
+Package pdftex.def Info: figures/barcrawl.jpg used on input line 167.
 (pdftex.def)             Requested size: 187.60158pt x 309.86148pt.
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
@@ -921,34 +931,34 @@ Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
  [2
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./figures/BG3.jpg> <./figu
-res/MSU.jpg> <./figures/barcrawl.jpg>]
-(./Conference_Poster_Template.aux) ) 
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./figures/BG2a.jpg> <./fig
+ures/nscl.png> <./figures/nsftextlong.png> <./figures/MSUwide.png> <./figures/b
+arcrawl.jpg>] (./Conference_Poster_Template.aux) ) 
 Here is how much of TeX's memory you used:
- 19270 strings out of 494953
- 412128 string characters out of 6180977
- 503691 words of memory out of 5000000
- 22170 multiletter control sequences out of 15000+600000
+ 19283 strings out of 494953
+ 412427 string characters out of 6180977
+ 504357 words of memory out of 5000000
+ 22180 multiletter control sequences out of 15000+600000
  22760 words of font info for 42 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  62i,21n,92p,525b,981s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dv
-ips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/
-palatino/uplb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/upl
-r8a.pfb>
-Output written on Conference_Poster_Template.pdf (1 page, 438535 bytes).
+{/usr/share/texlive/texmf-dis
+t/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/urw/palatino/uplb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/ur
+w/palatino/uplr8a.pfb>
+Output written on Conference_Poster_Template.pdf (1 page, 869702 bytes).
 PDF statistics:
- 89 PDF objects out of 1000 (max. 8388607)
- 53 compressed objects within 1 object stream
+ 95 PDF objects out of 1000 (max. 8388607)
+ 54 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 130 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 140 words of extra memory for PDF output out of 10000 (max. 10000000)
 

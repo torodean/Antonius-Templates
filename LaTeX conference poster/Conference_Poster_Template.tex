@@ -45,6 +45,8 @@
 }
 
 \definecolor{lightblue}{rgb}{0.145,0.6666,1} % Defines the color used for content box headers
+\definecolor{SPTdarkgreen}{RGB}{24,69,59}
+\definecolor{SPTlightgreen}{RGB}{13,177,75}
 
 \newcommand{\tab}{\hspace{0.8cm}}
 
@@ -52,7 +54,7 @@
 	
 \background{%
 	\begin{tikzpicture}
-	[remember picture,overlay]\node[opacity=1] at (current page.center) {\includegraphics[width=\paperwidth,height=\paperheight]{BG3.jpg}};
+	[remember picture,overlay]\node[opacity=1] at (current page.center) {\includegraphics[width=\paperwidth,height=\paperheight]{BG2a.jpg}};
 	\end{tikzpicture}%
 }
 
@@ -63,9 +65,9 @@ colspacing=1em, % Column spacing
 background=user,
 %bgColorOne=white, % Background color for the gradient on the left side of the poster
 %bgColorTwo=white, % Background color for the gradient on the right side of the poster
-borderColor=lightblue, % Border color
+borderColor=SPTdarkgreen, % Border color
 headerColorOne=black, % Background color for the header in the content boxes (left side)
-headerColorTwo=lightblue, % Background color for the header in the content boxes (right side)
+headerColorTwo=SPTlightgreen, % Background color for the header in the content boxes (right side)
 headerFontColor=white, % Text color for the header text in the content boxes
 boxColorOne=white, % Background color of the content boxes
 textborder=roundedleft, % Format of the border around content boxes, can be: none, bars, coils, triangles, rectangle, rounded, roundedsmall, roundedright or faded
@@ -80,10 +82,10 @@ linewidth=2pt % Width of the border lines around content boxes
 %	TITLE SECTION 
 %----------------------------------------------------------------------------------------
 %
-{\includegraphics[height=4em]{MSU.jpg}} % First university/lab logo on the left
+{\includegraphics[height=4em]{nscl.png}\includegraphics[height=4em]{nsftextlong.png}} % First university/lab logo on the left
 {\bf\textsc{The Most Pragmatic Information Ever}\vspace{0.5em}} % Poster title
 {\textsc{Antonius Torode -  \hspace{12pt} Michigan State University \\ Department of Physics \& Astronomy}} % Author names and institution
-{\includegraphics[height=4em]{MSU.jpg}} % Second university/lab logo on the right
+{\includegraphics[height=4em]{MSUwide.png}} % Second university/lab logo on the right
 
 %------------------------------------------------------
 %	TOP LEFT
