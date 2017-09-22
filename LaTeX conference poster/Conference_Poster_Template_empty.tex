@@ -1,0 +1,165 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% baposter Landscape Poster
+% LaTeX Template
+% Version 1.0 (11/06/13)
+%
+% baposter Class Created by:
+% Brian Amberg (baposter@brian-amberg.de)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com and modified by Antonius Torode
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[landscape,a0paper,fontscale=0.28]{baposter} % Adjust the font scale/size here
+
+\usepackage{graphicx} % Required for including images
+\graphicspath{{figures/}} % Directory in which figures are stored
+
+\usepackage{amsmath} % For typesetting math
+\usepackage{amssymb} % Adds new symbols to be used in math mode
+
+\usepackage{booktabs} % Top and bottom rules for tables
+\usepackage{enumitem} % Used to reduce itemize/enumerate spacing
+\usepackage{palatino} % Use the Palatino font
+\usepackage[font=small,labelfont=bf]{caption} % Required for specifying captions to tables and figures
+
+\usepackage{multicol} % Required for multiple columns
+\setlength{\columnsep}{1.5em} % Slightly increase the space between columns
+\setlength{\columnseprule}{0mm} % No horizontal rule between columns
+
+\usepackage{tikz} % Required for flow chart
+\usetikzlibrary{shapes,arrows} % Tikz libraries required for the flow chart in the template
+
+\newcommand{\compresslist}{ % Define a command to reduce spacing within itemize/enumerate environments, this is used right after \begin{itemize} or \begin{enumerate}
+\setlength{\itemsep}{1pt}
+\setlength{\parskip}{0pt}
+\setlength{\parsep}{1pt}
+}
+
+\definecolor{lightblue}{rgb}{0.145,0.6666,1} % Defines the color used for content box headers
+\definecolor{SPTdarkgreen}{RGB}{24,69,59}
+\definecolor{SPTlightgreen}{RGB}{13,177,75}
+
+\newcommand{\tab}{\hspace{0.8cm}}
+
+\begin{document}
+	
+\background{%
+	\begin{tikzpicture}
+	[remember picture,overlay]\node[opacity=1] at (current page.center) {\includegraphics[width=\paperwidth,height=\paperheight]{BG2a.jpg}};
+	\end{tikzpicture}%
+}
+
+\begin{poster}
+{
+headerborder=closed, % Adds a border around the header of content boxes
+colspacing=1em, % Column spacing
+background=user,
+%bgColorOne=white, % Background color for the gradient on the left side of the poster
+%bgColorTwo=white, % Background color for the gradient on the right side of the poster
+borderColor=SPTdarkgreen, % Border color
+headerColorOne=black, % Background color for the header in the content boxes (left side)
+headerColorTwo=SPTlightgreen, % Background color for the header in the content boxes (right side)
+headerFontColor=white, % Text color for the header text in the content boxes
+boxColorOne=white, % Background color of the content boxes
+textborder=roundedleft, % Format of the border around content boxes, can be: none, bars, coils, triangles, rectangle, rounded, roundedsmall, roundedright or faded
+eyecatcher=true, % Set to false for ignoring the left logo in the title and move the title left
+headerheight=0.1\textheight, % Height of the header
+headershape=roundedright, % Specify the rounded corner in the content box headers, can be: rectangle, small-rounded, roundedright, roundedleft or rounded
+headerfont=\Large\bf\textsc, % Large, bold and sans serif font in the headers of content boxes
+%textfont={\setlength{\parindent}{1.5em}}, % Uncomment for paragraph indentation
+linewidth=2pt % Width of the border lines around content boxes
+}
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION 
+%----------------------------------------------------------------------------------------
+%
+{\includegraphics[height=4em]{SuNlogo.png}\includegraphics[height=4em]{nscl.png}\includegraphics[height=4em]{nsftext.png}} % First university/lab logo on the left
+{\bf\textsc{\LARGE Characterizing a Tape Station and $\beta$ Detector \\ For Radioactive Isotope Beam Experiments}\vspace{0.1em}} % Poster title
+{\textsc{\large A. Torode, M. K. Smith, F. Naqvi, E. Zganjar, \\ P. deYoung, A. Dombos, C. Harris, A. Spyrou}} % Author names and institution
+{\includegraphics[height=4em]{MSUwide.png}} % Second university/lab logo on the right
+
+%------------------------------------------------------
+%	TOP LEFT
+%------------------------------------------------------
+
+\headerbox{Top Left}{name=topleft,column=0,row=0}{
+
+}
+
+%------------------------------------------------------
+%	TOP RIGHT
+%------------------------------------------------------
+
+\headerbox{Top Right}{name=topright,column=3,row=0}{
+
+}
+
+%------------------------------------------------------
+%	TOP MIDDLE
+%------------------------------------------------------
+
+\headerbox{Top Middle}{name=topmiddle,column=1,span=2,row=0}{
+
+}
+%------------------------------------------------------
+%	BOTTOM LEFT
+%------------------------------------------------------
+
+\headerbox{Bottom Left}{name=bottomleft,column=0,above=bottom}{
+
+}
+
+%------------------------------------------------------
+%	BOTTOM MIDDLE
+%------------------------------------------------------
+
+\headerbox{Bottom Middle }{name=bottommiddle,column=1,span=2,aligned=bottomleft,above=bottom}{ 
+
+}
+
+%------------------------------------------------------
+%	BOTTOM RIGHT
+%------------------------------------------------------
+
+\headerbox{Bottom Right}{name=bottomright,column=3,aligned=bottomleft,above=bottom}{ 
+
+}
+
+%------------------------------------------------------
+%	MIDDLE SECTION
+%------------------------------------------------------
+
+\headerbox{Middle}{name=middle,column=1,span=2,row=0,below=topmiddle,above=bottommiddle}{
+
+}
+
+%------------------------------------------------------
+%	RIGHT MIDDLE
+%------------------------------------------------------
+
+\headerbox{Right Middle}{name=rightmiddle,column=3,below=topright,bottomaligned=middle}{ 
+
+}
+
+%------------------------------------------------------
+%	LEFT MIDDLE
+%------------------------------------------------------
+
+\headerbox{Left Middle [1]}{name=leftmiddle,column=0,below=topleft,bottomaligned=middle}{ 
+
+}
+
+%------------------------------------------------------
+
+\end{poster}
+
+\end{document}
