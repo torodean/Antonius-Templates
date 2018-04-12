@@ -1,5 +1,6 @@
 #!/bin/sh
 echo "...Loading Project Employed Generation Assembly (PEGA)."
+echo "...Created by Antonius Torode."
 echo "...Please make sure you are connected to the Internet."
 echo "...Please enter a project name."
 read PROJECT
