@@ -23,8 +23,8 @@ cd literature/
 wget https://raw.githubusercontent.com/torodean/Antonius-Templates/master/Project%20Directory%20Template/doc/literature/README.txt
 cd ../manual/
 wget -v https://raw.githubusercontent.com/torodean/Antonius-Templates/master/Project%20Directory%20Template/doc/manual/README.txt
-wget -v https://github.com/torodean/Antonius-Templates/blob/master/LaTeX%20Manual%20Template/Manual.pdf
-wget -v https://raw.githubusercontent.com/torodean/Antonius-Templates/master/LaTeX%20Manual%20Template/manual.tex
+wget -v https://github.com/torodean/Antonius-Templates/raw/master/LaTeX%20Manual%20Template/Manual.pdf
+wget -v https://raw.githubusercontent.com/torodean/Antonius-Templates/master/LaTeX%20Manual%20Template/Manual.tex
 mkdir -v TeX_files images
 cd TeX_files/
 wget -v https://raw.githubusercontent.com/torodean/Antonius-Templates/master/LaTeX%20Manual%20Template/TeX_files/AppendixI.tex
@@ -35,17 +35,19 @@ wget -v https://raw.githubusercontent.com/torodean/Antonius-Templates/master/LaT
 wget -v https://raw.githubusercontent.com/torodean/Antonius-Templates/master/LaTeX%20Manual%20Template/TeX_files/settings.tex
 cd ../images/
 wget -v https://raw.githubusercontent.com/torodean/Antonius-Templates/master/Project%20Directory%20Template/doc/manual/images/README.txt
-wget -v https://github.com/torodean/Antonius-Templates/tree/master/LaTeX%20Manual%20Template/images/man_cover.png
+wget -v https://github.com/torodean/Antonius-Templates/raw/master/LaTeX%20Manual%20Template/images/man_cover.png
 cd ../../notes/
 wget -v https://raw.githubusercontent.com/torodean/Antonius-Templates/master/Project%20Directory%20Template/doc/notes/README.txt
 cd ../../images
 wget -v https://raw.githubusercontent.com/torodean/Antonius-Templates/master/Project%20Directory%20Template/images/README.txt
+cd ../release
+wget -v https://raw.githubusercontent.com/torodean/Antonius-Templates/master/Project%20Directory%20Template/release/README.txt
 cd ../resources
 wget -v https://raw.githubusercontent.com/torodean/Antonius-Templates/master/Project%20Directory%20Template/resources/README.txt
 cd ../
-wget https://raw.githubusercontent.com/torodean/Antonius-Templates/master/Project%20Directory%20Template/.gitignore
-wget https://raw.githubusercontent.com/torodean/Antonius-Templates/master/Project%20Directory%20Template/README.txt
-wget https://raw.githubusercontent.com/torodean/Antonius-Templates/master/Project%20Directory%20Template/Antonius%E2%80%99%20General%20Purpose%20License%20(AGPL)
+wget -v https://raw.githubusercontent.com/torodean/Antonius-Templates/master/Project%20Directory%20Template/.gitignore
+wget -v https://raw.githubusercontent.com/torodean/Antonius-Templates/master/Project%20Directory%20Template/README.txt
+wget -v "https://raw.githubusercontent.com/torodean/Antonius-Personal/master/Antonius%E2%80%99%20General%20Purpose%20License%20(AGPL)"
 
 
 
