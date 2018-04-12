@@ -1,11 +1,16 @@
- \documentclass[openany,a4paper,11pt]{book}
+%BEGIN_FOLD
+\documentclass[openany,a4paper,11pt]{book}
 
 \include{./TeX_files/packages}
 \include{./TeX_files/settings}
 
-\title{\vspace{0.1cm}  \includegraphics[scale=0.5]{./Images/MIA_cropped_Inverted.png} \vspace{.5cm} \\ Multiple Integrated Applications (MIA) \\  Manual \& Programming Documentation}
+\title{\vspace{0.1cm}  \includegraphics[scale=0.5]{./images/MIA_cropped_Inverted.png} \vspace{.5cm} \\ Multiple Integrated Applications (MIA) \\  Manual \& Programming Documentation}
 \author{Developer: Antonius Torode \\ Michigan State University \\ Department of Physics \& Astronomy}
 \date{Version -- 0.001 \\ Latest update: \today}
+
+\makeindex
+%\addcontentsline{toc}{chapter}{Index}
+%END_FOLD
 
 \begin{document}
 
@@ -32,11 +37,11 @@
 	\renewcommand{\headrulewidth}{0pt}
 	\renewcommand{\footrulewidth}{0pt}}
 
-\include{./TeX_files/concept}
-\include{./TeX_files/commands}
+\include{./TeX_files/chapter}
 
 \backmatter
 \include{./TeX_files/AppendixI}
 \include{./TeX_files/references}
+\printindex
 
 \end{document}
