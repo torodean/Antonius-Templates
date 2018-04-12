@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.11.14)  12 APR 2018 11:20
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.11.14)  12 APR 2018 11:21
 entering extended mode
-**Manual.tex
-("C:\cygwin64\home\torodean\Antonius-Templates\LaTeX Manual Template\Manual.tex
+**manual.tex
+("C:\cygwin64\home\torodean\Antonius-Templates\LaTeX Manual Template\manual.tex
 "
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
@@ -567,8 +567,8 @@ File: lstlang1.sty 2015/06/04 1.6 listings language file
 ))
 \@indexfile=\write3
 
-Writing index file Manual.idx
-("C:\cygwin64\home\torodean\Antonius-Templates\LaTeX Manual Template\Manual.aux
+Writing index file manual.idx
+("C:\cygwin64\home\torodean\Antonius-Templates\LaTeX Manual Template\manual.aux
 "
 ("C:\cygwin64\home\torodean\Antonius-Templates\LaTeX Manual Template\TeX_files\
 frontmatter.aux")
@@ -655,9 +655,9 @@ LaTeX Info: Redefining \ref on input line 15.
 LaTeX Info: Redefining \pageref on input line 15.
 LaTeX Info: Redefining \nameref on input line 15.
 
-("C:\cygwin64\home\torodean\Antonius-Templates\LaTeX Manual Template\Manual.out
+("C:\cygwin64\home\torodean\Antonius-Templates\LaTeX Manual Template\manual.out
 ")
-("C:\cygwin64\home\torodean\Antonius-Templates\LaTeX Manual Template\Manual.out
+("C:\cygwin64\home\torodean\Antonius-Templates\LaTeX Manual Template\manual.out
 ")
 \@outlinefile=\write4
  <./images/man_cover.png, id=7, 549.55313pt x 126.4725pt>
@@ -702,7 +702,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 28--34
 [2
 
 ])
-("C:\cygwin64\home\torodean\Antonius-Templates\LaTeX Manual Template\Manual.toc
+("C:\cygwin64\home\torodean\Antonius-Templates\LaTeX Manual Template\manual.toc
 ")
 \tf@toc=\write5
  [3
@@ -736,16 +736,10 @@ references.tex") [2
 
 
 ]
-("C:\cygwin64\home\torodean\Antonius-Templates\LaTeX Manual Template\Manual.ind
-" [3
-
-
-
-])
+No file manual.ind.
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 47.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 47.
-
-("C:\cygwin64\home\torodean\Antonius-Templates\LaTeX Manual Template\Manual.aux
+("C:\cygwin64\home\torodean\Antonius-Templates\LaTeX Manual Template\manual.aux
 "
 ("C:\cygwin64\home\torodean\Antonius-Templates\LaTeX Manual Template\TeX_files\
 frontmatter.aux")
@@ -757,13 +751,13 @@ AppendixI.aux")
 references.aux"))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 47.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 47.
-Package rerunfilecheck Info: File `Manual.out' has not changed.
+Package rerunfilecheck Info: File `manual.out' has not changed.
 (rerunfilecheck)             Checksum: 4F8F72FF5233B367B15E131221EFA953;46.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 47.
  ) 
 Here is how much of TeX's memory you used:
- 8691 strings out of 493921
- 123992 string characters out of 3147272
+ 8688 strings out of 493921
+ 123832 string characters out of 3147272
  344429 words of memory out of 3000000
  11837 multiletter control sequences out of 15000+200000
  8848 words of font info for 31 fonts, out of 3000000 for 9000
@@ -777,9 +771,9 @@ ts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
 public/amsfonts/cm/cmr9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
 fonts/cm/cmsy9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
 cmti10.pfb>
-Output written on Manual.pdf (7 pages, 111694 bytes).
+Output written on manual.pdf (6 pages, 108938 bytes).
 PDF statistics:
- 89 PDF objects out of 1000 (max. 8388607)
- 18 named destinations out of 1000 (max. 500000)
+ 82 PDF objects out of 1000 (max. 8388607)
+ 17 named destinations out of 1000 (max. 500000)
  14 words of extra memory for PDF output out of 10000 (max. 10000000)
 

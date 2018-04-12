@@ -24,8 +24,8 @@ wget https://github.com/torodean/Antonius-Templates/tree/master/Project%20Direct
 cd -v ../manual
 mkdir -v TeX_files images
 wget -v https://github.com/torodean/Antonius-Templates/tree/master/Project%20Directory%20Template/doc/manual/README.txt
-wget -v https://github.com/torodean/Antonius-Templates/blob/master/LaTeX%20Manual%20Template/Manual.pdf
-wget -v https://github.com/torodean/Antonius-Templates/blob/master/LaTeX%20Manual%20Template/Manual.tex
+wget -v https://github.com/torodean/Antonius-Templates/blob/master/LaTeX%20Manual%20Template/manual.pdf
+wget -v https://github.com/torodean/Antonius-Templates/blob/master/LaTeX%20Manual%20Template/manual.tex
 cd -v TeX_files
 wget https://github.com/torodean/Antonius-Templates/blob/master/LaTeX%20Manual%20Template/TeX_files/AppendixI.tex
 wget https://github.com/torodean/Antonius-Templates/blob/master/LaTeX%20Manual%20Template/TeX_files/chapter.tex
