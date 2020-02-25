@@ -6,4 +6,4 @@
 # Description : README Template
 #============================================================================
 
-The bin directory is for any programs created by the project.
+The bin directory is for any program source files created by or within the project.
