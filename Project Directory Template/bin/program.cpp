@@ -14,16 +14,19 @@ using std::cout;
 using std::endl;
 
 //Main program constructor.
-program::program(){
+program::program()
+{
 	//Chuck Norris can take a screen shot of his blue screen.	
 }
 
 //Main program deconstructor.
-program::~program(){
+program::~program()
+{
 	//When Chuck Norris throws exceptions, it's across the room.
 }
 
 //runs the helloWrld feature.
-void program::helloWorld(){
+void program::helloWorld()
+{
 	cout << "Hello World!" << endl;
 }
