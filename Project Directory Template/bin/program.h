@@ -11,13 +11,12 @@
 #ifndef __PROGRAM_H__
 #define __PROGRAM_H__
 
-class program{
-	private:
-		
-	public:
-		program();
-		~program();
-		
-		void helloWorld();
+class program
+{
+public:
+	program();
+	~program();
+
+	void helloWorld();
 };
 #endif
