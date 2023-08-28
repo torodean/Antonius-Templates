@@ -9,7 +9,8 @@ colors = {
     'magenta': '\033[35m',  # PROGRAM text
     'cyan': '\033[36m',     # OTHER text
     'white': '\033[37m',    # NORMAL text.
-    'reset': '\033[0m'
+    'reset': '\033[0m',
+    'none': ''
 }
 
 def output_text(message, type=None, color=None):
@@ -49,11 +50,13 @@ def output_text(message, type=None, color=None):
         else:
             print(f"{colors['red']}ERROR: Invalid type ({type}) specified.{colors['reset']}")
             color = 'white'
+    elif color is None and type is None:
+        color = 'white'
 
-    color = color.lower()
     if color not in colors:
         print(f"{colors['red']}ERROR: Invalid color ({color}) specified.{colors['reset']}")
         return
     
     formatted_message = f"{colors[color]}{message}{colors['reset']}"
+    print(formatted_message)
     print(formatted_message)
