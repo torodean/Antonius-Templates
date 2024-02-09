@@ -1,0 +1,181 @@
+\newcommand{\andspace}[1]{\hspace{#1}\textrm{and}\hspace{#1}}
+
+\numberwithin{equation}{section}
+\setlength{\columnsep}{.5cm}
+\setlength{\columnseprule}{1pt}
+\def\columnseprulecolor{\color{black}}
+
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\inner}[1]{\langle #1 \rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\spanvect}{\textnormal{span}}
+\newcommand{\union}{\cup}
+\newcommand{\Union}{\bigcup}
+
+%create a section without making the section title.
+\newcommand\invisiblesection[1]{%
+	\refstepcounter{section}%
+	\addcontentsline{toc}{section}{\protect\numberline{\thesection}#1}%
+	\sectionmark{#1}}
+
+%Makes a chapter with no title
+\makeatletter
+\newcommand{\unchapter}[1]{%
+	\begingroup
+	\let\@makechapterhead\@gobble % make \@makechapterhead do nothing
+	\chapter{#1}
+	\endgroup
+}
+\makeatother
+
+% Define the questions environment
+\newenvironment{questions}{%
+	\begin{tcolorbox}[
+		colback=orange!10,
+		colframe=orange!50,
+		arc=0pt,
+		boxrule=1pt,
+		title={\faQuestion\ Questions},
+		fonttitle=\bfseries,
+		coltitle=blue!50!black,
+		colbacktitle=yellow!20,
+		attach title to upper={\par},
+		boxsep=0pt,
+		]
+		\begin{itemize}  % Start the itemize environment
+			\BODY  % This will contain the list of questions
+		\end{itemize}  % End the itemize environment
+	\end{tcolorbox}
+}
+
+% define interesting note
+\newenvironment{interestnote}{
+	\begin{tcolorbox}[
+		colback=green!10,  % Very light green background color of the box
+		colframe=green!50,  % Border color of the box
+		arc=0pt,  % Adjust the corner radius of the box
+		boxrule=1pt,  % Border thickness
+		title={\faLightbulb\ Interesting Note},  % The lightbulb icon and title
+		fonttitle=\bfseries,  % Font style for the title
+		coltitle=blue!50!black,  % Color for the title text
+		colbacktitle=yellow!20,  % Background color for the title
+		attach title to upper={\par},
+		boxsep=0pt,  % Adjust the space between the content and the box
+		]
+	}{
+	\end{tcolorbox}
+}
+
+\definecolor{lightpurple}{RGB}{220,180,240}
+
+\newenvironment{quotationbox}{
+	\begin{tcolorbox}[
+		colback=lightpurple!10,  % Very light purple background color of the box
+		colframe=lightpurple!50,  % Border color of the box
+		arc=0pt,  % Adjust the corner radius of the box
+		boxrule=1pt,  % Border thickness
+		title={\faQuoteLeft\ Quotation},  % The quotation icon and title
+		fonttitle=\bfseries,  % Font style for the title
+		coltitle=blue!50!black,  % Color for the title text
+		colbacktitle=yellow!20,  % Background color for the title
+		attach title to upper={\par},
+		boxsep=0pt,  % Adjust the space between the content and the box
+		]
+	}{
+	\end{tcolorbox}
+}
+
+% define a URL
+\newenvironment{urlbox}{
+	\begin{tcolorbox}[
+		colback=blue!10,  % Very light green background color of the box
+		colframe=blue!50,  % Border color of the box
+		arc=0pt,  % Adjust the corner radius of the box
+		boxrule=1pt,  % Border thickness
+		title={URL},  % The lightbulb icon and title
+		fonttitle=\bfseries,  % Font style for the title
+		coltitle=blue!50!black,  % Color for the title text
+		colbacktitle=yellow!20,  % Background color for the title
+		attach title to upper={\par},
+		boxsep=0pt,  % Adjust the space between the content and the box
+		]
+	}{
+	\end{tcolorbox}
+}
+
+\newcommand{\unfinished}{%
+	\par\noindent%
+	\setlength{\fboxsep}{10pt} % Adjust the padding
+	\fcolorbox{red}{red!20}{%
+		\begin{minipage}{\dimexpr\linewidth-2\fboxsep}%
+			\vspace{5pt} % Adjust the vertical spacing
+			\centering
+			\textcolor{red}{\textbf{\faExclamation\ Section in Progress\ \faExclamation}}
+			\vspace{5pt} % Adjust the vertical spacing
+		\end{minipage}%
+	}%
+	\par
+}
+
+% Define Python style
+\lstdefinestyle{pythonstyle}{
+	language=Python,
+	basicstyle=\ttfamily\small,
+	numbers=left,
+	numberstyle=\tiny\color{gray},
+	frame=single,
+	rulecolor=\color{black},
+	keywordstyle=\color{blue},
+	commentstyle=\color{green!40!black},
+	stringstyle=\color{red},
+	breaklines=true,
+	tabsize=4,
+	captionpos=b,
+	extendedchars=true,
+	inputencoding=utf8,
+	showspaces=false,
+	showstringspaces=false,
+	xleftmargin=\parindent,
+	xrightmargin=\parindent
+}
+
+\lstdefinestyle{shellstyle}{
+	language=sh,                   % Set the language to Shell
+	basicstyle=\ttfamily,           % Use a monospaced font
+	backgroundcolor=\color{gray!10},% Background color
+	keywordstyle=\color{blue},      % Keywords are blue
+	commentstyle=\color{green!40!black}, % Comments are green
+	stringstyle=\color{red},        % Strings are red
+	breakatwhitespace=false,        % Don't break lines at whitespace
+	breaklines=true,                % Automatically break long lines
+	postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space}, % Line continuation symbol
+	showstringspaces=false,         % Don't show spaces in strings
+	captionpos=b,                   % Caption position (bottom)
+	frame=single,                   % Add a frame around listings
+	numbers=left,                   % Line numbers on the left
+	numberstyle=\tiny\color{gray},  % Line number style
+	stepnumber=1,                   % Line number increments
+	tabsize=4,                      % Tab size
+	xleftmargin=15pt,               % Left margin
+	xrightmargin=0pt,               % Right margin
+}
+
+% Define the custom terminal style
+\lstdefinestyle{terminalstyle}{
+	language=bash,                   % Set the language to Bash
+	basicstyle=\ttfamily\color{white}, % Use a monospaced font and white text
+	backgroundcolor=\color{black},   % Background color
+	frame=tb,                        % Top and bottom frame lines
+	framerule=0.5pt,                 % Frame rule width
+	xleftmargin=10pt,                % Left margin
+	xrightmargin=10pt,               % Right margin
+	rulecolor=\color{blue!70},       % Frame color
+	showstringspaces=false,          % Don't show spaces in strings
+	upquote=true,                    % Use straight quotes
+	commentstyle=\color{white},      % Comments are white
+	keywordstyle=\color{white},      % Keywords are white
+	numbers=left,                    % Line numbers on the left
+	numberstyle=\tiny\color{gray},   % Line number style
+	captionpos=b,                    % Caption position (bottom)
+	breaklines=true,                 % Automatically break long lines
+}
