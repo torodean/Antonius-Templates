@@ -5,6 +5,10 @@
 *.o
 *.out
 *.ilg
+*.idx
+*.ind
+*.toc
+Thumbs.db
 
 # Compiled Object files
 **/.DS_Store
