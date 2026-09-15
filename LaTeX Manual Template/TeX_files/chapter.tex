@@ -1,11 +1,330 @@
-\chapter{Chapter 1 \index{chapter 1}}
+% This chapter demonstrates every formatting option the template provides.
+% Each demo shows the LaTeX source first, then the rendered result, so new
+% users can copy the source directly. Delete this file's body (or the whole
+% chapter) once real content replaces it. Keep each demo in sync with
+% TeX_files/definitions.tex and TeX_files/settings.tex.
+\chapter{Template Usage}
+\thispagestyle{fancy}
+\label{chapter:template}
 
-Code can be included as so:
+This chapter explains how to add content to the manual and demonstrates every custom formatting option. Each demo shows the LaTeX source first, then the rendered result, so you can copy the source and adapt it.
 
-\begin{lstlisting}
-public static void Life(){
-	if(life == "rough"){
-		self.getOverit();
-	}
+\section{Adding a Chapter}
+
+Each chapter lives in its own file under \texttt{TeX\_files/}. To add one:
+
+\begin{enumerate}
+	\item Create \texttt{TeX\_files/<name>.tex}.
+	\item Begin the file with a chapter heading and label, as shown below.
+	\item Add an \lstinline|\include| line for it in \texttt{Manual.tex}, wrapped in \lstinline|\newpage|.
+\end{enumerate}
+
+\begin{lstlisting}[style=latexstyle]
+% TeX_files/Example.tex
+\chapter{Example Chapter}
+\thispagestyle{fancy}
+\label{chapter:example}
+
+% Body text goes here.
+\end{lstlisting}
+
+\begin{lstlisting}[style=latexstyle]
+% In Manual.tex, add the chapter after the last one:
+\newpage
+\include{./TeX_files/Example}
+\end{lstlisting}
+
+\section{Text Formatting}
+
+\subsection{Emphasis and Fonts}
+
+\begin{lstlisting}[style=latexstyle]
+\textbf{Bold text}, \textit{italic text}, \texttt{monospace text},
+\textsc{small caps}, \underline{underlined text}.
+\end{lstlisting}
+
+\textbf{Bold text}, \textit{italic text}, \texttt{monospace text}, \textsc{small caps}, \underline{underlined text}.
+
+\subsection{Sections}
+
+Chapters are divided with \lstinline|\section|, \lstinline|\subsection|, and \lstinline|\subsubsection|. They are numbered automatically and appear in the table of contents.
+
+\begin{lstlisting}[style=latexstyle]
+\section{A Top Level Heading}
+\subsection{A Second Level Heading}
+\subsubsection{A Third Level Heading}
+\end{lstlisting}
+
+\subsection{Lists}
+
+\begin{lstlisting}[style=latexstyle]
+\begin{itemize}
+	\item An itemize bullet.
+	\item A second bullet.
+\end{itemize}
+
+\begin{enumerate}
+	\item An enumerated item.
+	\item A second item.
+\end{enumerate}
+\end{lstlisting}
+
+\begin{itemize}
+	\item An itemize bullet.
+	\item A second bullet.
+\end{itemize}
+
+\begin{enumerate}
+	\item An enumerated item.
+	\item A second item.
+\end{enumerate}
+
+\subsection{Tables}
+
+\begin{lstlisting}[style=latexstyle]
+\begin{center}
+	\begin{tabular}{l|l|l}
+		Column one & Column two & Column three \\
+		\hline
+		cell & cell & cell \\
+		cell & cell & cell \\
+	\end{tabular}
+\end{center}
+\end{lstlisting}
+
+\begin{center}
+	\begin{tabular}{l|l|l}
+		Column one & Column two & Column three \\
+		\hline
+		cell & cell & cell \\
+		cell & cell & cell \\
+	\end{tabular}
+\end{center}
+
+The \texttt{\{l|l|l\}} argument gives one left-aligned column per letter, with vertical rules between them. Use \texttt{|} where you want a line and \texttt{c} or \texttt{r} for centered or right-aligned columns.
+
+\subsection{Cross References, Footnotes, and URLs}
+
+Label anything you need to reference with \lstinline|\label{unique_name}|, then point at it with \lstinline|\ref{...}|. Label names use underscores, not dashes. Labels always go on the environment or sectioning command they name.
+
+\begin{lstlisting}[style=latexstyle]
+A cross reference to the first theorem: \ref{thm:example}.
+A footnote\footnote{Footnotes render at the bottom of the page.}.
+A URL: \url{https://github.com/torodean}
+\end{lstlisting}
+
+A cross reference to the first theorem: \ref{thm:example}. A footnote\footnote{Footnotes render at the bottom of the page.}. A URL: \url{https://github.com/torodean}
+
+\subsection{Index Terms}
+
+The \lstinline|\idx{term}| command prints a term in bold and adds it to the back-of-book index. Use it for key concepts a reader would search for. Plain \lstinline|\index{term}| adds an unbolded index entry without printing anything extra.
+
+\begin{lstlisting}[style=latexstyle]
+The \idx{template} prints bold and indexes the term.
+This sentence mentions the \index{indexing} without bolding it.
+\end{lstlisting}
+
+The \idx{template} prints bold and indexes the term.
+This sentence mentions the \index{indexing} without bolding it.
+
+\subsection{Math}
+
+Inline math goes between dollar signs; display math goes in an equation environment.
+
+\begin{lstlisting}[style=latexstyle]
+Inline math ($a^2 + b^2 = c^2$) and display math:
+
+\begin{equation}
+	e^{i\pi} + 1 = 0
+\end{equation}
+\end{lstlisting}
+
+Inline math ($a^2 + b^2 = c^2$) and display math:
+
+\begin{equation}
+	e^{i\pi} + 1 = 0
+\end{equation}
+
+\section{Code Listings}
+
+Code goes in a \texttt{lstlisting} environment. The \texttt{style=} option picks one of the language styles defined in \texttt{settings.tex}. The styles available are \texttt{terminalstyle}, \texttt{shellstyle}, \texttt{cppstyle}, \texttt{cmakestyle}, \texttt{gitstyle}, \texttt{makestyle}, \texttt{pythonstyle}, and \texttt{latexstyle}. Use \texttt{terminalstyle} for interactive sessions and \texttt{shellstyle} for scripts.
+
+\begin{latexsource}
+\begin{lstlisting}[style=cppstyle]
+int add(int a, int b)
+{
+	return a + b;  // Return the sum of a and b.
 }
 \end{lstlisting}
+\end{latexsource}
+
+Which renders as:
+
+\begin{lstlisting}[style=cppstyle]
+int add(int a, int b)
+{
+	return a + b;  // Return the sum of a and b.
+}
+\end{lstlisting}
+
+For a single short snippet inside a sentence, use the lstinline command. It takes any character you like as the delimiter, as in \texttt{\string\lstinline|code|}.
+
+The \texttt{latexsource} environment is a \texttt{lstlisting} block with the \texttt{latexstyle} under a different name. Use it whenever the source you are showing contains a \texttt{lstlisting} environment itself; a normal \texttt{lstlisting} block would end at the inner \lstinline|\end{lstlisting}|.
+
+\subsection{terminalstyle}
+
+\begin{lstlisting}[style=terminalstyle]
+$ cd ~/git/Antonius-Templates
+$ pdflatex Manual.tex      # compile the manual
+\end{lstlisting}
+
+\subsection{shellstyle}
+
+\begin{lstlisting}[style=shellstyle]
+#!/bin/bash
+# A comment in a shell script.
+echo "Hello, World!"
+\end{lstlisting}
+
+\subsection{pythonstyle}
+
+\begin{lstlisting}[style=pythonstyle]
+def add(a, b):
+    return a + b
+\end{lstlisting}
+
+\subsection{cmakestyle}
+
+\begin{lstlisting}[style=cmakestyle]
+cmake_minimum_required(VERSION 3.10)
+project(example CXX)
+add_executable(example main.cpp)
+\end{lstlisting}
+
+\subsection{gitstyle}
+
+\begin{lstlisting}[style=gitstyle]
+git commit -m "A commit message."
+\end{lstlisting}
+
+\subsection{makestyle}
+
+\begin{lstlisting}[style=makestyle]
+all: Manual.pdf
+
+Manual.pdf: Manual.tex
+	pdflatex Manual.tex
+\end{lstlisting}
+
+\section{Callout Boxes}
+
+The boxed environments below are defined in \texttt{TeX\_files/definitions.tex}. The mdframed boxes each take an optional title in square brackets and a label in curly braces; the label argument is required, even when you never reference the box, so pass empty curly braces if you do not need one. The tcolorbox boxes take no arguments.
+
+\subsection{Fancy Box (mdframed)}
+
+The general purpose numbered box. Use it for callouts that do not fit a more specific environment.
+
+\begin{lstlisting}[style=latexstyle]
+\begin{fancybox}[Title]{label:name}
+	Box content goes here.
+\end{fancybox}
+\end{lstlisting}
+
+\begin{fancybox}[Fancy Box]{fancy_box_example}
+	The fancybox is a general purpose orange box. Leave the label empty (\lstinline|\begin{fancybox}[Title]{}|) when the box does not need to be referenced.
+\end{fancybox}
+
+\subsection{Theorem, Lemma, Proof, and Definition (mdframed)}
+
+Numbered blue, green, and red boxes for formal statements, plus a gray definition box. Each takes an optional title and an optional label.
+
+\begin{lstlisting}[style=latexstyle]
+\begin{theo}[Theorem Title]{thm:label}
+	Theorem content.
+\end{theo}
+
+\begin{lemm}[Lemma Title]{lem:label}
+	Lemma content.
+\end{lemm}
+
+\begin{prf}[Proof Title]{prf:label}
+	Proof content, ends with a QED symbol.
+\end{prf}
+
+\begin{defn}[Definition Title]{def:label}
+	Definition content.
+\end{defn}
+\end{lstlisting}
+
+\begin{theo}[Theorem Title]{thm:example}
+	The theo environment renders a blue numbered theorem box. Referenced here as \ref{thm:example}.
+\end{theo}
+
+\begin{lemm}[Lemma Title]{lem:example}
+	The lemm environment renders a green numbered lemma box. Referenced here as \ref{lem:example}.
+\end{lemm}
+
+\begin{prf}[Proof Title]{prf:example}
+	The prf environment renders a red numbered proof box and ends with a QED symbol.
+\end{prf}
+
+\begin{defn}[Definition Title]{def:example}
+	The defn environment renders a gray numbered definition box.
+\end{defn}
+
+\subsection{Questions (tcolorbox)}
+
+An orange box for open questions about a section. Write plain item lines; the environment wraps them in a list for you.
+
+\begin{lstlisting}[style=latexstyle]
+\begin{questions}
+	\item First question.
+	\item Second question.
+\end{questions}
+\end{lstlisting}
+
+\begin{questions}
+	\item The questions environment is an orange box that wraps an itemize list.
+	\item Use it to collect open questions about a section.
+\end{questions}
+
+\subsection{Interesting Note, Quotation, and URL (tcolorbox)}
+
+\begin{lstlisting}[style=latexstyle]
+\begin{interestingnote}
+	Trivia or an aside.
+\end{interestingnote}
+
+\begin{quotationbox}
+	A quotation.
+\end{quotationbox}
+
+\begin{urlbox}
+	A link: \url{https://github.com/torodean}
+\end{urlbox}
+\end{lstlisting}
+
+\begin{interestingnote}
+	The interestingnote environment is a green box with a lightbulb icon. Use it for trivia or asides that are not essential.
+\end{interestingnote}
+
+\begin{quotationbox}
+	The quotationbox environment is a purple box with a quote icon.
+\end{quotationbox}
+
+\begin{urlbox}
+	The urlbox environment is a blue box for references. Example: \url{https://github.com/torodean}
+\end{urlbox}
+
+\subsection{Unfinished Banner}
+
+Place \lstinline|\unfinished| on its own line to mark a section as incomplete. It renders the banner below.
+
+\begin{lstlisting}[style=latexstyle]
+\unfinished
+\end{lstlisting}
+
+The command renders this banner:
+
+\vspace{10pt}
+\unfinished
