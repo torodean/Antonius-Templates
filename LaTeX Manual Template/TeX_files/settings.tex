@@ -1,18 +1,250 @@
-\renewcommand{\chaptername}{}
+%%% Settings for the manual: version number, page layout, headers/footers,
+%%% and lstlisting styles. The version number is incremented automatically by
+%%% the commitAll.sh script (scripts/increment_version.py).
 
-\titleformat{\chapter}[display]
-{\normalfont\bfseries}{}{0pt}{\huge}
+%%Version Number
+\newcommand{\Version}{0.002}
+%%Version
 
+%%% Page formatting
 \geometry{margin=1in}
-
 \setlength{\parindent}{25pt}
 
+% Add subsubsections to the numbering counter.
+\setcounter{secnumdepth}{3}
+
+%Rename the bibliography to References.
 \renewcommand\bibname{References}
 
-\renewcommand{\headrulewidth}{0pt}
-%\setcounter{chapter}{-1} %starts the chapter labels at 0 instead of 1
+%%% Header and Footer Info
+% The running header shows the manual name and version on the left/even side
+% and the page number on the right/odd side. Replace "Project Name" below with
+% your project name.
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LO]{\small {\textbf{Project Name Manual, Version \Version}}}
+\fancyhead[RE]{\small {\textbf{Project Name Manual, Version \Version}}}
+\fancyhead[RO]{\small \thepage}
+\fancyhead[LE]{\small \thepage}
+\fancyfoot[L]{}
+\fancyfoot[C]{}
+\fancyfoot[R]{}
 
-\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
-\definecolor{commentcolour}{rgb}{.00,.245,.0}
-\lstdefinestyle{sharpc}{language=[Sharp]C, tabsize=3, backgroundcolor=\color{backcolour},breaklines=true, basicstyle=\footnotesize, showstringspaces=false, commentstyle=\color{commentcolour}, keywordstyle=\color{blue}}
-\lstset{style=sharpc}
+% Chapter pages use the plain style by default; patch them to use empty and
+% restyle the chapter headings so they print without the "Chapter N" label.
+\patchcmd{\chapter}{plain}{empty}{}{}
+\titleformat{\chapter}[display]
+{\normalfont\huge\bfseries}{}{0pt}{\Huge}
+\titlespacing*{\chapter} {0pt}{-50pt}{10pt}
+
+%re-defines the plain page style
+\fancypagestyle{plain}{%
+	\fancyhf{}
+	\rhead{\thepage}
+	\renewcommand{\headrulewidth}{0pt}}
+
+
+%%% Different lstlisting formats go here. Use them with
+%%% \begin{lstlisting}[style=<name>] in chapter files.
+
+% Define the custom terminal style. A dark background with light text, meant to
+% mimic an interactive terminal session (prompts and command output).
+\lstdefinestyle{terminalstyle}{
+    language=bash,                   % Set the language to Bash
+    basicstyle=\ttfamily\color{white}, % Use a monospaced font and white text
+    backgroundcolor=\color{black},   % Background color
+    frame=tb,                        % Top and bottom frame lines
+    framerule=0.5pt,                 % Frame rule width
+    xleftmargin=5pt,                % Left margin
+    xrightmargin=0pt,                % Right margin
+    rulecolor=\color{black!20},      % Frame color
+    showstringspaces=false,          % Don't show spaces in strings
+    upquote=true,                    % Use straight quotes
+    commentstyle=\color{green},      % Comments are green
+    keywordstyle=\color{orange!60},  % Keywords
+    numbers=left,                    % Line numbers on the left
+    numberstyle=\tiny\color{black!90},   % Line number style
+    captionpos=b,                    % Caption position (bottom)
+    breaklines=true,                 % Automatically break long lines
+    postbreak=\mbox{\textcolor{green}{$\hookrightarrow$}\space}, % Line continuation symbol
+}
+
+% Define a bash/shell style. A light background script style for shell scripts
+% and command line usage blocks.
+\lstdefinestyle{shellstyle}{
+	language=sh,                    % Set the language to Shell
+	basicstyle=\ttfamily,           % Use a monospaced font
+	backgroundcolor=\color{gray!10},% Background color
+	keywordstyle=\color{blue},      % Keywords are blue
+	commentstyle=\color{green!40!black}, % Comments are green
+	stringstyle=\color{red},        % Strings are red
+        rulecolor=\color{black},        % Frame color
+	breakatwhitespace=false,        % Don't break lines at whitespace
+	breaklines=true,                % Automatically break long lines
+	postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space}, % Line continuation symbol
+	showstringspaces=false,         % Don't show spaces in strings
+	captionpos=b,                   % Caption position (bottom)
+	frame=single,                   % Add a frame around listings
+	numbers=left,                   % Line numbers on the left
+	numberstyle=\tiny\color{gray},  % Line number style
+	stepnumber=1,                   % Line number increments
+	tabsize=4,                      % Tab size
+	xleftmargin=5pt,               % Left margin
+	xrightmargin=0pt                % Right margin
+}
+
+% Define C++ style. Used for C++ source snippets and API examples.
+\lstdefinestyle{cppstyle}{
+	language=C++,
+	basicstyle=\ttfamily\small,
+	numbers=left,
+	numberstyle=\tiny\color{gray},
+	frame=single,
+	rulecolor=\color{black!30},
+	backgroundcolor=\color{gray!05},% Background color
+	keywordstyle=\color{blue},
+	commentstyle=\color{green!40!black},
+	stringstyle=\color{red},
+	breaklines=true,
+	tabsize=4,
+	captionpos=b,
+	extendedchars=true,
+	inputencoding=utf8,
+	showspaces=false,
+	showstringspaces=false,
+	xleftmargin=5pt,               % Left margin
+	xrightmargin=0pt                % Right margin
+}
+
+% Define CMake style. Used for CMakeLists.txt snippets and build configuration.
+\lstdefinelanguage{cmake}{
+	keywords={project, set, add_executable, add_library, target_link_libraries,
+		target_include_directories, target_compile_definitions, target_compile_options,
+		message, if, else, elseif, endif, foreach, endforeach, function, endfunction,
+		macro, endmacro, option, find_package, include, install, cmake_minimum_required},
+	keywordstyle=\color{blue}\bfseries,
+	sensitive=false,
+	comment=[l]{\#},
+	morecomment=[s]{[}{]},
+	commentstyle=\color{green!40!black},
+	stringstyle=\color{red},
+	morestring=[b]",
+}
+
+% Define CMake style
+\lstdefinestyle{cmakestyle}{
+	language=cmake,
+	basicstyle=\ttfamily\small,
+	numbers=left,
+	numberstyle=\tiny\color{gray},
+	frame=single,
+	rulecolor=\color{teal},
+	backgroundcolor=\color{teal!05},
+	keywordstyle=\color{blue},
+	commentstyle=\color{green!40!black},
+	stringstyle=\color{red},
+	breaklines=true,
+	tabsize=4,
+	captionpos=b,
+	extendedchars=true,
+	inputencoding=utf8,
+	showspaces=false,
+	showstringspaces=false,
+	xleftmargin=5pt,               % Left margin
+	xrightmargin=0pt                % Right margin
+}
+
+% Define Git style. Used for git command line examples and workflows.
+\lstdefinestyle{gitstyle}{
+	language=bash, % Assuming Git commands are written in a bash-like language
+	basicstyle=\ttfamily\small,
+	numbers=left,
+	numberstyle=\tiny\color{gray},
+	frame=single,
+	backgroundcolor=\color{blue!05},
+	rulecolor=\color{blue},
+	keywordstyle=\color{blue},
+	commentstyle=\color{green!40!black},
+	stringstyle=\color{red},
+	breaklines=true,
+	tabsize=4,
+	captionpos=b,
+	extendedchars=true,
+	inputencoding=utf8,
+	showspaces=false,
+	showstringspaces=false,
+	xleftmargin=5pt,               % Left margin
+	xrightmargin=0pt                % Right margin
+}
+
+% Define Makefile style. Used for Makefile snippets and build tooling.
+\lstdefinestyle{makestyle}{
+	language=make,
+	basicstyle=\ttfamily\small,
+	numbers=left,
+	numberstyle=\tiny\color{gray},
+	frame=single,
+	backgroundcolor=\color{darkgreen!05},
+	rulecolor=\color{darkgreen},
+	keywordstyle=\color{blue},
+	commentstyle=\color{green!40!black},
+	stringstyle=\color{red},
+	breaklines=true,
+	tabsize=4,
+	captionpos=b,
+	extendedchars=true,
+	inputencoding=utf8,
+	showspaces=false,
+	showstringspaces=false,
+	xleftmargin=5pt,               % Left margin
+	xrightmargin=0pt                % Right margin
+}
+
+% Define Python style. Used for python tooling and utility scripts.
+\lstdefinestyle{pythonstyle}{
+	language=Python,
+	basicstyle=\ttfamily\small,
+	numbers=left,
+	numberstyle=\tiny\color{gray},
+	frame=single,
+	rulecolor=\color{orange},
+        backgroundcolor=\color{orange!05},
+	keywordstyle=\color{blue},
+	commentstyle=\color{green!40!black},
+	stringstyle=\color{red},
+	breaklines=true,
+	tabsize=4,
+	captionpos=b,
+	extendedchars=true,
+	inputencoding=utf8,
+	showspaces=false,
+	showstringspaces=false,
+	xleftmargin=5pt,               % Left margin
+	xrightmargin=0pt                % Right margin
+}
+
+% Define LaTeX style. Used for documenting the LaTeX markup of this manual itself.
+\lstdefinestyle{latexstyle}{
+	language=TeX,
+	basicstyle=\ttfamily\small,
+	numbers=left,
+	numberstyle=\tiny\color{gray},
+	frame=single,
+	rulecolor=\color{brown},
+	backgroundcolor=\color{brown!05},
+	keywordstyle=\color{blue},
+	commentstyle=\color{green!40!black},
+	stringstyle=\color{red},
+	breaklines=true,
+	tabsize=4,
+	captionpos=b,
+	extendedchars=true,
+	inputencoding=utf8,
+	showspaces=false,
+	showstringspaces=false,
+	xleftmargin=5pt,               % Left margin
+	xrightmargin=0pt                % Right margin
+}
+
+% Define dark green color
+\definecolor{darkgreen}{RGB}{0,100,0}
