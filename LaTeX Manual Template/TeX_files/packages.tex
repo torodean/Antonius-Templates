@@ -1,6 +1,9 @@
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 
+% Command-manipulation utilities (\patchcmd, \newbool, ...) used in settings.tex
+\usepackage{etoolbox}
+
 %edits page margins and layout.
 \usepackage{geometry}
 
@@ -15,6 +18,21 @@
 \usepackage{listings}
 
 \usepackage{xcolor}
+
+% String tests: \ifstrempty
+\usepackage{xstring}
+% Environment macros: \NewEnviron
+\usepackage{environ}
+% \tikz / \node (loads pgf)
+\usepackage{tikz}
+% mdframed boxes: \mdfsetup + the mdframed env (theo/lemm/prf/defn/fancybox)
+\usepackage{mdframed}
+% tcolorbox environments (questions, interestingnote, quotationbox, urlbox)
+\usepackage{tcolorbox}
+% \fa* icons (FA5: provides solid \faLightbulb plus question/quote/exclamation)
+\usepackage{fontawesome5}
+% \qed (QED tombstone) for the prf/proof box in definitions.tex
+\usepackage{amsthm}
 
 %package for making appendicies.
 \usepackage{appendix}
